@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7d55f0a5274382ba3ca1be70c8df9de0",
+    "hash": "de64bb4dff34184ed32d52403206c4c1",
     "packages": [
         {
             "name": "composer/installers",
@@ -103,6 +103,104 @@
                 "zikula"
             ],
             "time": "2015-10-29 23:28:48"
+        },
+        {
+            "name": "joshkosmala/silverstripe-mappable",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/joshkosmala/silverstripe-mappable.git",
+                "reference": "258991305036eaefb828c77faf5d31451ae13c52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/joshkosmala/silverstripe-mappable/zipball/258991305036eaefb828c77faf5d31451ae13c52",
+                "reference": "258991305036eaefb828c77faf5d31451ae13c52",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe-australia/gridfieldextensions": "*",
+                "silverstripe/cms": "~3.1",
+                "silverstripe/framework": "~3.1"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "mappable"
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josh Kosmala",
+                    "email": "josh@novaweb.co.nz"
+                }
+            ],
+            "description": "Add a Google Map with Longitude/Latitude points of interest to your SilverStripe pages",
+            "homepage": "https://github.com/joshkosmala/silverstripe-mappable",
+            "keywords": [
+                "Common Web Platform",
+                "cwp",
+                "google maps",
+                "map",
+                "maps",
+                "silverstripe"
+            ],
+            "time": "2015-10-20 22:01:15"
+        },
+        {
+            "name": "silverstripe-australia/gridfieldextensions",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe-australia/silverstripe-gridfieldextensions.git",
+                "reference": "48b0a1f3fca0f548744e6cd12b7754de323054d3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe-australia/silverstripe-gridfieldextensions/zipball/48b0a1f3fca0f548744e6cd12b7754de323054d3",
+                "reference": "48b0a1f3fca0f548744e6cd12b7754de323054d3",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "~3.1"
+            },
+            "replace": {
+                "ajshort/silverstripe-gridfieldextensions": "self.version"
+            },
+            "type": "silverstripe-module",
+            "extra": {
+                "installer-name": "gridfieldextensions",
+                "branch-alias": {
+                    "dev-master": "1.2.x-dev"
+                },
+                "screenshots": [
+                    "docs/en/_images/editable-rows.png",
+                    "docs/en/_images/add-existing-search.png"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Marcus Nyeholt",
+                    "email": "marcus@silverstripe.com.au"
+                },
+                {
+                    "name": "Andrew Short",
+                    "email": "andrewjshort@gmail.com"
+                }
+            ],
+            "description": "A collection of useful grid field components",
+            "homepage": "http://github.com/ajshort/silverstripe-gridfieldextensions",
+            "keywords": [
+                "gridfield",
+                "silverstripe"
+            ],
+            "time": "2015-08-11 05:01:37"
         },
         {
             "name": "silverstripe-themes/simple",
@@ -734,7 +832,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "joshkosmala/silverstripe-mappable": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

@@ -11,3 +11,5 @@ vendor/
 cms/
 framework/
 reports/
+gridfieldextensions/
+mappable/

@@ -7,7 +7,8 @@
 		"silverstripe/framework": "3.2.0",
 		"silverstripe/reports": "3.2.0",
 		"silverstripe/siteconfig": "3.2.0",
-		"silverstripe-themes/simple": "3.1.*"
+		"silverstripe-themes/simple": "3.1.*",
+		"joshkosmala/silverstripe-mappable": "dev-master"
 	},
 	"require-dev": {
 		"phpunit/PHPUnit": "~3.7"
