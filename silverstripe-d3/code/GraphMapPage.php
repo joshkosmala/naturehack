@@ -8,10 +8,11 @@ class GraphMapPage_Controller extends LocationMapPage_Controller {
 
    public function init(){
       parent::init();
+      self::plantJSON();
       Requirements::javascript(MODULE_D3_DIR . "/javascript/d3.v3.min.js");
       Requirements::javascript(MODULE_D3_DIR . "/javascript/d3-config.js");
-      Requirements::javascript(MODULE_D3_DIR . "/javascript/flare.json");
-      self::getPlantsInFamilies();
+      Requirements::javascript("assets/results.json");
+
    }
 
    public function locationData() {
@@ -55,13 +56,45 @@ class GraphMapPage_Controller extends LocationMapPage_Controller {
       return $families;
    }
 
-   public function getPlantsInFamilies(){
-      $families = $this->getDistinctFamilies();
-      foreach($families as $family){
-         $plants = Plant::get()->filter(array('Family' => $family));
-         //Debug::show($plants);
+   public function getPlantsInFamily(){
+      $families = Plant::get()->filter(array('Family' => 'Cyperaceae'));
+      //Debug::show($families);
+      return $families;
+   }
+
+   // Get the plants in one family.
+   // Count how many are there are of each type
+
+
+   public function plantJSON(){
+      //$families = $this->getDistinctFamilies();
+      $js = array();
+         $plantCount = $this->getPlantsInFamily()->column('Title');
+
+      $plantsArr = array();
+
+      foreach($plantCount as $c){
+
+      $plantsName = Plant::get()->filter(array('Title' => $c));
+$plantsNameCount = $plantsName->count();
+
+$plantsArr[] = array('name' => $c, 'size' => $plantsNameCount*1000);
+
       }
-      die();
+
+
+         $plantJSON = "";
+
+      $plantJSON = json_encode($plantsArr);
+      //Debug::show($plantJSON);die();
+      //$fp = fopen('../../../assets/results.json', 'w');
+//fwrite($fp, $plantJSON);
+//fclose($fp);
+file_put_contents(Director::baseFolder() . '/assets/results.json', $plantJSON);
+            //print_r($plantJSON);
+
+      //}
+      //die();
    }
 
 }
