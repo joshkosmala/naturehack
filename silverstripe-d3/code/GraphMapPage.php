@@ -11,7 +11,7 @@ class GraphMapPage_Controller extends LocationMapPage_Controller {
       self::plantJSON();
       Requirements::javascript(MODULE_D3_DIR . "/javascript/d3.v3.min.js");
       Requirements::javascript(MODULE_D3_DIR . "/javascript/d3-config.js");
-      Requirements::javascript("assets/results.json");
+      //Requirements::javascript("assets/results.json");
 
    }
 
@@ -57,7 +57,7 @@ class GraphMapPage_Controller extends LocationMapPage_Controller {
    }
 
    public function getPlantsInFamily(){
-      $families = Plant::get()->filter(array('Family' => 'Cyperaceae'));
+      $families = Plant::get()->filter(array('Family' => 'Dryopteridaceae'));
       //Debug::show($families);
       return $families;
    }
@@ -82,15 +82,16 @@ $plantsArr[] = array('name' => $c, 'size' => $plantsNameCount*1000);
 
       }
 
+      $childrenArr[] = array("name" => "analytics", "children" => $plantsArr);
 
-         $plantJSON = "";
+         $plantJSON = array("name" => "flare", array("children" => $childrenArr));
 
-      $plantJSON = json_encode($plantsArr);
+      $plantJSON = json_encode($plantJSON);
       //Debug::show($plantJSON);die();
-      //$fp = fopen('../../../assets/results.json', 'w');
-//fwrite($fp, $plantJSON);
-//fclose($fp);
-file_put_contents(Director::baseFolder() . '/assets/results.json', $plantJSON);
+      $fp = fopen(Director::baseFolder() . '/silverstripe-d3/javascript/results.json', 'w');
+fwrite($fp, $plantJSON);
+fclose($fp);
+//file_put_contents(Director::baseFolder() . '/silverstripe-d3/javascript/results.json', $plantJSON);
             //print_r($plantJSON);
 
       //}
