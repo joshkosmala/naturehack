@@ -1,5 +1,5 @@
 
-var diameter = 650,
+var diameter = 700,
     format = d3.format(",d"),
     color = d3.scale.category20c();
 
