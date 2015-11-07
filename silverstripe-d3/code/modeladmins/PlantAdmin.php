@@ -1,9 +1,9 @@
 <?php
 
-class PlantAdmin extends ModelAdmin {
-
+class PlantAdmin extends ModelAdmin
+{
     private static $managed_models = array(
-        'Plant'
+        'Plant',
     );
 
     private static $url_segment = 'plants';
