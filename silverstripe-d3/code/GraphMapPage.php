@@ -57,7 +57,7 @@ class GraphMapPage_Controller extends LocationMapPage_Controller {
    }
 
    public function getPlantsInFamily(){
-      $families = Plant::get()->filter(array('Family' => 'Dryopteridaceae'));
+      $families = Plant::get()->filter(array('Family' => 'Cyperaceae'));
       //Debug::show($families);
       return $families;
    }
@@ -71,7 +71,7 @@ class GraphMapPage_Controller extends LocationMapPage_Controller {
       $js = array();
          $plantCount = $this->getPlantsInFamily()->column('Title');
 
-      $plantsArr = array();
+
 
       foreach($plantCount as $c){
 
@@ -82,15 +82,21 @@ $plantsArr[] = array('name' => $c, 'size' => $plantsNameCount*1000);
 
       }
 
+
+
       $childrenArr[] = array("name" => "analytics", "children" => $plantsArr);
 
-         $plantJSON = array("name" => "flare", array("children" => $childrenArr));
+      $flareArr = array("name" => "flare", "children" => $childrenArr);
 
-      $plantJSON = json_encode($plantJSON);
+   //   $childrenArr[] = array("name" => "analytics", "children" => $plantsArr);
+
+      //   $plantJSON = array("name" => "flare", array("children" => $childrenArr));
+
+      $plantJSON = json_encode($flareArr);
       //Debug::show($plantJSON);die();
-      $fp = fopen(Director::baseFolder() . '/silverstripe-d3/javascript/results.json', 'w');
+/*      $fp = fopen(Director::baseFolder() . '/silverstripe-d3/javascript/results.json', 'w');
 fwrite($fp, $plantJSON);
-fclose($fp);
+fclose($fp); */
 //file_put_contents(Director::baseFolder() . '/silverstripe-d3/javascript/results.json', $plantJSON);
             //print_r($plantJSON);
 

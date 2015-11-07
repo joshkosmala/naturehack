@@ -13,7 +13,7 @@ var svg = d3.select("div.content").append("svg")
     .attr("height", diameter)
     .attr("class", "bubble");
 
-d3.json("silverstripe-d3/javascript/flare.json", function(error, root) {
+d3.json("silverstripe-d3/javascript/results.json", function(error, root) {
   if (error) throw error;
 
   var node = svg.selectAll(".node")
